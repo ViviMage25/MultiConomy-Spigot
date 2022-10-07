@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-public class PlayerAccount extends Account {
+public class PlayerAccount implements Account {
     
     private final UUID playerUUID;
     private final List<AccountBalance> balanceList;
@@ -17,7 +17,7 @@ public class PlayerAccount extends Account {
     @Override
     public AccountBalance getAccountBalance(String _currencyName) {
         for(AccountBalance bal : balanceList) {
-            if(bal.getCurrencyName.equals(_currencyName)) {
+            if(bal.getCurrencyName().equals(_currencyName.strip().toLowerCase())) {
                 return bal;
             }
         }
